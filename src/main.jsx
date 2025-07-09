@@ -11,8 +11,6 @@ import Login from './Pages/Login.jsx'
 import SignUp from './Pages/SignUp.jsx'
 import Products from './Pages/Products.jsx'
 
-
-
 const router = createBrowserRouter([
   {
     path: '/',
@@ -38,6 +36,9 @@ const router = createBrowserRouter([
         path:'/cart',
         element: <Cart/>
       },
+      {
+        path:'/post/:slug'
+      }
     ]
   }
 ])
