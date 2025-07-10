@@ -19,7 +19,7 @@ function Header() {
     <div>
         <nav className='flex items-center justify-between w-full py-5 px-2 sm:px-6 md:px-20 bg-blue-950 fixed z-50 left-0 shadow-lg shadow-purple-300'>
           <Link to='/'>
-          <h2 className='text-xl sm:text-3xl md:4xl text-white font-medium '>Logo</h2>
+          <h2 className='text-xl sm:text-3xl md:4xl text-white font-medium '>Loome</h2>
           </Link>
           <ul className=' flex items-center sm:text-lg md:text-xl gap-2 sm:gap-4 md:gap-16 text-blue-300'>
             {navItems.map((item) => (
