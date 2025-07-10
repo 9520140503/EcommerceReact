@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Input } from '../Components'; // Your custom input component
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import authService from '../Appwrite/auth';
+import { useDispatch } from 'react-redux';
+import { login } from '../Store/authSlice';
 
 
 function Login() {
@@ -11,8 +14,23 @@ function Login() {
     formState: { errors },
   } = useForm();
 
-  const submit = (data) => {
-    console.log("Form Data:", data);
+  const navigate = useNavigate()
+  const [loading,setLoading] = useState(false)
+  const dispatch = useDispatch()
+
+  const submit = async(data) => {
+    setLoading(true)
+    try {
+      const userData = await authService.login(data)
+      if(userData){
+        dispatch(login(userData))
+        navigate('/')
+      }
+    } catch (error) {
+      console.log("Login: ",error.message)
+    }finally{
+      setLoading(false)
+    }
   };
 
   return (
@@ -76,7 +94,7 @@ function Login() {
             type="submit"
             className="bg-blue-500 hover:bg-blue-600 transition text-white font-medium px-6 py-2 rounded-md mt-4 mx-auto w-1/2"
           >
-            Login
+            {loading ? "Logging...":"Login"}
           </button>
 
           <p className='text-center text-white'>Don't have an account? <span><Link className='text-blue-300' to='/signup'>SignUp</Link></span></p>

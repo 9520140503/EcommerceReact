@@ -15,7 +15,8 @@ const Input = forwardRef(function Input({
         type={type}
         className={`${className}`} 
         {...props}
-        id={id}/>
+        id={id}
+        ref={ref}/>
     </div>
   )
 })

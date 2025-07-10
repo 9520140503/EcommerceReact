@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Input } from '../Components'; // Your custom input component
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import authService from '../Appwrite/auth';
+import {login} from "../Store/authSlice"
 
 
 function SignUp() {
@@ -11,8 +14,23 @@ function SignUp() {
     formState: { errors },
   } = useForm();
 
-  const submit = (data) => {
-    console.log("Form Data:", data);
+  const [loading,setLoading] = useState(false)
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const submit = async(data) => {
+    setLoading(true)
+    try {
+      console.log(data)
+      const userData = await authService.signup(data)
+      if(userData){
+        dispatch(login(userData))
+        navigate('/')
+      }
+    }catch (error) {
+      console.log("SignUp: ",error.message)
+    }
+    finally{() => setLoading(false)}
   };
 
   return (
@@ -77,7 +95,7 @@ function SignUp() {
             type="submit"
             className="bg-blue-500 hover:bg-blue-600 transition text-white font-medium px-6 py-2 rounded-md mt-4 mx-auto w-1/2"
           >
-            Sign Up
+            {loading ? "Creating...": "Sign Up"}
           </button>
 
           <p className='text-center text-white'>Already have an account? <span><Link className='text-blue-300' to='/login'>Login</Link></span></p>

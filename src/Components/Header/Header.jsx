@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import Logout from "./Logout"
 
 function Header() {
     const authStatus = useSelector((state) => state.auth.status)
@@ -8,7 +9,7 @@ function Header() {
     const navItems = [
     {name:  'Home', slug: '/',status:true},
     {name: 'Products', slug: '/products',status:authStatus},
-    {name: 'Checkout', slug: '/checkout',status:authStatus},
+    {name: 'Cart', slug: '/cart',status:authStatus},
     {name: 'Contact Us', slug: '/contact',status:!authStatus},
     {name: 'Login', slug: '/login',status:!authStatus},
     {name: 'Sign Up', slug: '/signup',status:!authStatus},
@@ -32,6 +33,12 @@ function Header() {
                 </Link>
               </li> : null
             ))}
+            {authStatus && 
+            <li className='hover:bg-purple-800 transition duration-500 p-1 rounded'>
+              <Logout/>
+            </li>
+            }
+           
           </ul>
         </nav>
     </div>
