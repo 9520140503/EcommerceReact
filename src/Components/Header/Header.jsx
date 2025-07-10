@@ -1,17 +1,40 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 function Header() {
+    const authStatus = useSelector((state) => state.auth.status)
+
     const navItems = [
-    {name:  'Home', path: '/'},
-    {name: '{Products}', path: '/products'},
-    {name: 'Checkout', path: '/checkout'},
-    {name: 'Contact Us', path: '/contact'},
-    {name: 'Login', path: '/login'},
-    {name: 'Sign Up', path: '/signup'},
-    {name: 'Logout', path: '/logout'},
+    {name:  'Home', slug: '/',status:true},
+    {name: 'Products', slug: '/products',status:authStatus},
+    {name: 'Checkout', slug: '/checkout',status:authStatus},
+    {name: 'Contact Us', slug: '/contact',status:!authStatus},
+    {name: 'Login', slug: '/login',status:!authStatus},
+    {name: 'Sign Up', slug: '/signup',status:!authStatus},
   ]
+
+  
   return (
-    <div>Header</div>
+    <div>
+        <nav className='flex items-center justify-between w-full py-5 px-2 sm:px-6 md:px-20 bg-blue-950 fixed z-50 left-0 shadow-lg shadow-purple-300'>
+          <Link to='/'>
+          <h2 className='text-xl sm:text-3xl md:4xl text-white font-medium '>Logo</h2>
+          </Link>
+          <ul className=' flex items-center sm:text-lg md:text-xl gap-2 sm:gap-4 md:gap-16 text-blue-300'>
+            {navItems.map((item) => (
+              item.status ?
+              <li 
+              key={item.slug}
+              className='hover:bg-purple-800 transition duration-500 p-1 rounded'>
+                <Link to={item.slug}>
+                  {item.name}
+                </Link>
+              </li> : null
+            ))}
+          </ul>
+        </nav>
+    </div>
   )
 }
 

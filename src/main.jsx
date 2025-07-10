@@ -10,6 +10,7 @@ import Cart from './Pages/Cart.jsx'
 import Login from './Pages/Login.jsx'
 import SignUp from './Pages/SignUp.jsx'
 import Products from './Pages/Products.jsx'
+import Contact from './Pages/Contact.jsx'
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
         element: <SignUp/>
       },
       {
+        path: '/contact',
+        element: <Contact/>
+      },
+      {
         path:'/products',
         element:<Products/>
       },
@@ -36,9 +41,6 @@ const router = createBrowserRouter([
         path:'/cart',
         element: <Cart/>
       },
-      {
-        path:'/post/:slug'
-      }
     ]
   }
 ])

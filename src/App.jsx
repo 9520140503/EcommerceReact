@@ -24,7 +24,7 @@ function App() {
   return ( !loading ? 
         <div>
           <Header/>
-          <main className='min-h-screen w-full bg-blue-400'>
+          <main className='min-h-screen w-full bg-gradient-to-b from-blue-900 via-blue-950 to-black py-24'>
             <Outlet/>
           </main>
           <Footer/>
@@ -32,7 +32,7 @@ function App() {
         :
         <div>
            <Header/>
-            <main className='min-h-screen w-full bg-black flex justify-center items-center mx-auto'>
+            <main className='min-h-screen w-full bg-gradient-to-b from-blue-900 via-blue-950 to-black flex justify-center items-center mx-auto'>
             <Loading/>
           </main>
           <Footer/>
