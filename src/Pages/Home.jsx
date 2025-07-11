@@ -1,7 +1,9 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 function Home() {
+  const authStatus = useSelector((state) => state.auth.status)
   return (
     <div className=" text-white px-6 sm:px-10 md:px-20 py-28 space-y-24">
 
@@ -120,6 +122,7 @@ function Home() {
       <section className="text-center">
         <h2 className="text-3xl font-bold mb-4">Ready to experience convenience?</h2>
         <p className="text-gray-300 text-lg">Sign up today and enjoy exclusive deals and offers on your favorite products.</p>
+          {!authStatus ?
         <div className="flex justify-center gap-4 mt-6">
           <Link to="/signup">
             <button className="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full transition font-semibold">
@@ -131,7 +134,21 @@ function Home() {
               Browse Products
             </button>
           </Link>
+        </div> : 
+        
+        <div className="flex justify-center gap-4 mt-6">
+          <Link to="/signup" className='hidden'>
+            <button className="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full transition font-semibold">
+              Get Started
+            </button>
+          </Link>
+          <Link to="/products">
+            <button className="border border-purple-500 hover:bg-purple-500 px-6 py-2 rounded-full transition font-semibold">
+              Browse Products
+            </button>
+          </Link>
         </div>
+        }
       </section>
 
     </div>

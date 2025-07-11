@@ -1,5 +1,12 @@
 import {Client,ID,Storage,Databases,Query} from "appwrite";
 import conf from "../Config/conf.js";
+import { homeAndKitchenProducts as home,
+         bookProducts as books,
+         toyProducts as toys,
+         beautyAndHealthProducts as beauty,
+         smartphones as phones,
+         clothingProducts as clothes
+        } from "../Products"
 
 class AppwriteProductService{
     client = new Client()
@@ -15,17 +22,23 @@ class AppwriteProductService{
         this.bucket = new Storage(this.client)
     }
 
-    async createProduct({name,description,price,featuredImage,slug,status}){
+    async createProducts(){
         try {
-            const data ={
-                name,description,price,featuredImage,status
-            }
-            return await this.database.createDocument(
+            const existing = await this.database.listDocuments(conf.appwriteDatabaseId,conf.appwriteCollectionId,[Query.limit(1)])
+            
+            if(existing.total > 0) return console.log("Products already seeded");
+            
+            const products = [...home,...books,...toys,...beauty,...phones,...clothes]
+            await Promise.all(
+                products.map((product) => 
+                this.database.createDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
-                slug,
-                data
+                ID.unique(),
+                product
+            ))
             )
+            console.log("Products stored successfully")
         } catch (error) {
             console.error("Create product failed:", error);
             throw error;
@@ -33,7 +46,7 @@ class AppwriteProductService{
         }
     }
 
-    async getPost(slug){
+    async getProduct(slug){
         try {
             return await this.database.getDocument(
                 conf.appwriteDatabaseId,
@@ -46,7 +59,7 @@ class AppwriteProductService{
         }
     }
 
-    async getPosts(query = [Query.equal("status","available")]){
+    async getProducts(query = [Query.equal("status","available")]){
             try {
                 return await this.database.listDocuments(
                     conf.appwriteDatabaseId,
