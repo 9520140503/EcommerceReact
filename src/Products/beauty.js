@@ -3,140 +3,28 @@ export const beautyAndHealthProducts = [
     product_name: "Mamaearth Ubtan Face Wash",
     description: "Gentle exfoliating face wash with turmeric and saffron.",
     price: 299,
-    featuredImage: "https://images.unsplash.com/photo-1556228720-189651f7e4bb?auto=format&fit=crop&w=640&q=80",
+    featuredImage: "https://www.google.com/imgres?q=Mamaearth%20Ubtan%20Face%20Wash&imgurl=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F71Wbdf1ML-L.jpg&imgrefurl=https%3A%2F%2Fwww.amazon.in%2FMamaearth-Natural-Turmeric-Saffron-brightning%2Fdp%2FB07FPV716J&docid=pPr1ed_vzA9DYM&tbnid=rjVb-lr5FNG65M&vet=12ahUKEwio46HPy7eOAxUS2TgGHZ0fFD8QM3oECBoQAA..i&w=2500&h=2500&hcb=2&ved=2ahUKEwio46HPy7eOAxUS2TgGHZ0fFD8QM3oECBoQAA",
     status: "Available"
   },
   {
     product_name: "Nivea Soft Moisturizer Cream",
     description: "Lightweight, non-greasy moisturizer for all skin types.",
     price: 249,
-    featuredImage: "https://images.unsplash.com/photo-1610465297836-fd3d77c7e7b3?auto=format&fit=crop&w=640&q=80",
+    featuredImage: "https://www.google.com/imgres?q=Nivea%20Soft%20Moisturizer%20Cream&imgurl=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F61UP6RvA9wL.jpg&imgrefurl=https%3A%2F%2Fwww.amazon.in%2FNivea-Soft-Cream-200ml%2Fdp%2FB00OUCB1PM&docid=KHq7J2zIbXOT5M&tbnid=vTS7p3XfKndYOM&vet=12ahUKEwij88ray7eOAxXPzjgGHfUYCaIQM3oECBwQAA..i&w=1500&h=1500&hcb=2&ved=2ahUKEwij88ray7eOAxXPzjgGHfUYCaIQM3oECBwQAA",
     status: "Available"
   },
   {
     product_name: "Beardo Beard Oil",
     description: "Growth and nourishment beard oil with almond and castor oils.",
     price: 349,
-    featuredImage: "https://images.unsplash.com/photo-1600181985686-3bb1c4442c25?auto=format&fit=crop&w=640&q=80",
-    status: "Available"
-  },
-  {
-    product_name: "WOW Skin Science Apple Cider Vinegar Shampoo",
-    description: "Natural shampoo for dandruff control and hair strengthening.",
-    price: 399,
-    featuredImage: "https://images.unsplash.com/photo-1560875014-626e7f98c6e4?auto=format&fit=crop&w=640&q=80",
-    status: "Available"
-  },
-  {
-    product_name: "L'Oréal Paris Revitalift Serum",
-    description: "1.5% hyaluronic acid serum for youthful glowing skin.",
-    price: 799,
-    featuredImage: "https://images.unsplash.com/photo-1600180758890-e5c6bdc0d116?auto=format&fit=crop&w=640&q=80",
-    status: "Not Available"
-  },
-  {
-    product_name: "Maybelline Colossal Kajal",
-    description: "Smudge-proof, waterproof eye kajal with intense color.",
-    price: 199,
-    featuredImage: "https://images.unsplash.com/photo-1526045612212-70caf35c14df?auto=format&fit=crop&w=640&q=80",
-    status: "Available"
-  },
-  {
-    product_name: "Plum Green Tea Day Cream",
-    description: "Matte-finish, hydrating day cream for oily skin.",
-    price: 470,
-    featuredImage: "https://images.unsplash.com/photo-1581281196311-63049d4fb697?auto=format&fit=crop&w=640&q=80",
-    status: "Available"
-  },
-  {
-    product_name: "Lakme 9 to 5 Primer + Matte Lipstick",
-    description: "Long-lasting lipstick with smooth matte finish.",
-    price: 499,
-    featuredImage: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=640&q=80",
-    status: "Available"
-  },
-  {
-    product_name: "Dove Intense Repair Conditioner",
-    description: "Deep nourishing conditioner for damaged hair.",
-    price: 325,
-    featuredImage: "https://images.unsplash.com/photo-1598514982802-98ec5b1c373f?auto=format&fit=crop&w=640&q=80",
-    status: "Not Available"
-  },
-  {
-    product_name: "Minimalist Niacinamide 10% Serum",
-    description: "Brightens skin and reduces acne marks.",
-    price: 599,
-    featuredImage: "https://images.unsplash.com/photo-1604908554161-4929898a03d3?auto=format&fit=crop&w=640&q=80",
-    status: "Available"
-  },
-  {
-    product_name: "Patanjali Aloe Vera Gel",
-    description: "Multi-purpose gel for skin and hair hydration.",
-    price: 90,
-    featuredImage: "https://images.unsplash.com/photo-1603398938378-95c7c722d141?auto=format&fit=crop&w=640&q=80",
-    status: "Available"
-  },
-  {
-    product_name: "Garnier Micellar Cleansing Water",
-    description: "Makeup remover and skin cleanser in one.",
-    price: 299,
-    featuredImage: "https://images.unsplash.com/photo-1585238342025-6b4e33ad71b4?auto=format&fit=crop&w=640&q=80",
-    status: "Available"
-  },
-  {
-    product_name: "Biotique Bio Cucumber Toner",
-    description: "Refreshing pore tightening toner with herbal formula.",
-    price: 175,
-    featuredImage: "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=640&q=80",
-    status: "Available"
-  },
-  {
-    product_name: "Cetaphil Gentle Skin Cleanser",
-    description: "Dermatologist-recommended face wash for sensitive skin.",
-    price: 315,
-    featuredImage: "https://images.unsplash.com/photo-1596464716124-0c7f179d8f4b?auto=format&fit=crop&w=640&q=80",
-    status: "Not Available"
-  },
-  {
-    product_name: "Himalaya Purifying Neem Face Pack",
-    description: "Removes oil, pimples, and impurities from skin.",
-    price: 130,
-    featuredImage: "https://images.unsplash.com/photo-1600442371029-cb79a5d87690?auto=format&fit=crop&w=640&q=80",
-    status: "Available"
-  },
-  {
-    product_name: "Neutrogena Ultra Sheer Sunscreen SPF 50",
-    description: "Lightweight sun protection for all skin types.",
-    price: 549,
-    featuredImage: "https://images.unsplash.com/photo-1598266665135-447b640f1e2c?auto=format&fit=crop&w=640&q=80",
-    status: "Available"
-  },
-  {
-    product_name: "Gillette Mach3 Razor",
-    description: "Triple-blade shaving razor with comfort guard.",
-    price: 299,
-    featuredImage: "https://images.unsplash.com/photo-1588776235982-62901eae7881?auto=format&fit=crop&w=640&q=80",
-    status: "Available"
-  },
-  {
-    product_name: "Mamaearth Vitamin C Night Cream",
-    description: "Skin brightening night cream for radiant skin.",
-    price: 599,
-    featuredImage: "https://images.unsplash.com/photo-1565992441124-b4ecf8595298?auto=format&fit=crop&w=640&q=80",
-    status: "Available"
-  },
-  {
-    product_name: "The Derma Co. Sunscreen SPF 60 PA+++",
-    description: "Broad-spectrum sunscreen for acne-prone skin.",
-    price: 699,
-    featuredImage: "https://images.unsplash.com/photo-1556228728-826fe6a58290?auto=format&fit=crop&w=640&q=80",
+    featuredImage: "https://www.google.com/imgres?q=Beardo%20Beard%20Oil&imgurl=https%3A%2F%2Fbeardo.in%2Fcdn%2Fshop%2Ffiles%2F1_d6a6bc74-8c90-4291-aa64-ec37ac034fff.jpg%3Fv%3D1704354743%26width%3D1946&imgrefurl=https%3A%2F%2Fbeardo.in%2Fproducts%2Fbeardo-beard-and-hair-growth-oil%3Fsrsltid%3DAfmBOoovVkShXFpht_9Y4Z8X6b83M79pIjWlgYVpgNlJJG3aZmybvEr_&docid=HNq6uIXDjLOuEM&tbnid=NzQMLg5hABo0YM&vet=12ahUKEwiTpKjly7eOAxW4xTgGHaZSGOIQM3oECBsQAA..i&w=1946&h=1946&hcb=2&ved=2ahUKEwiTpKjly7eOAxW4xTgGHaZSGOIQM3oECBsQAA",
     status: "Available"
   },
   {
     product_name: "WOW Hair Oil with Red Onion Black Seed",
     description: "Non-sticky hair oil for strengthening and shine.",
     price: 349,
-    featuredImage: "https://images.unsplash.com/photo-1620592730211-7ca8c6f1f79c?auto=format&fit=crop&w=640&q=80",
+    featuredImage: "https://www.google.com/imgres?q=WOW%20Hair%20Oil%20with%20Red%20Onion%20Black%20Seed&imgurl=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F81u6HwcU53L.jpg&imgrefurl=https%3A%2F%2Fwww.amazon.in%2FWOW-Science-Onion-Black-Serum%2Fdp%2FB08H4P4DZY&docid=NnpCDEYRy6r4zM&tbnid=V7oB8YrRJqj7MM&vet=12ahUKEwjVzt78y7eOAxXy8DgGHZBmN9cQM3oECBgQAA..i&w=2000&h=2000&hcb=2&ved=2ahUKEwjVzt78y7eOAxXy8DgGHZBmN9cQM3oECBgQAA",
     status: "Available"
   }
 ];

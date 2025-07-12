@@ -1,52 +1,90 @@
-import React, { useEffect, useState } from 'react'
-import appwriteProductService from '../Appwrite/config'
+import React, { useEffect, useState } from "react";
+import appwriteProductService from "../Appwrite/config";
+import appwriteCartService from "../Appwrite/cart"
 
 function Products() {
-  const [products,setProduct] = useState([])
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
+    (async () => {
       try {
-        const successfull = appwriteProductService.createProducts()
-        console.log(successfull)
+        const created = await appwriteProductService.createProducts();
+        console.log("Created products:", created);
       } catch (error) {
-        console.log("Failed to add produccts",error.message)
+        console.log("Failed to add products:", error.message);
       }
-  },[])
+    })();
+  }, []);
 
+  // 👉 fetch products once
   useEffect(() => {
-     appwriteProductService.getProducts()
-     .then((res) => setProduct(res.documents))
-     .catch((error) => console.log("Error:",error.message))
-  },[])
+    appwriteProductService
+      .getProducts()
+      .then((res) => setProducts(res.documents))
+      .catch((error) => console.log("Error:", error.message));
+  }, []);
 
-  // if(products.length === 0){
-  //   return <div>
-  //     <h2>No Product is available right now</h2>
-  //   </div>
-  // }
+  const addToCart = async(product) => {
+    try {
+    await appwriteCartService.addToCart(product)
+    console.log("Product added successfully to cart")
+    } catch (error) {
+      console.log("Failed to add cart")
+    }
+  }
+
+  if (products.length === 0) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <h2 className="text-2xl font-semibold text-pink-400">
+          No product is available right now
+        </h2>
+      </div>
+    );
+  }
 
   return (
-    <div className='w-full flex flex-col items-center min-h-screen'>
-      <h1 className='text-xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-white mb-10'>Products/Accessories</h1>
-      <div className=' w-full min-h-screen grid grid-cols-1 sm:grid-cols-2 md :grid-cols-4 lg:grid-cols-5 py-5 px-6 sm:px-8 md:px-14 gap-4 sm:gap-8 md:gap-10'>
-          {products.map((product) => (
-            <div className='border-2 border-purple-300 py-10 px-5 h-90 rounded-lg shadow-lg shadow-green-400' key={product.$id}>
-              <img 
-              src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8" 
-              alt={product.product_name} 
-              width={340}
-              className='mb-8'/>
-              <h3 className='text-white bg-red-300 my-5 mb-12 text-md sm:text-lg'>{product.product_name}</h3>
-              <h4 className='text-red-300 my-5'>{product.description}</h4>
-              <p className='text-blue-300 text-lg sm:text-xl mb-2'>₹{product.price}</p>
-              <button className='text-white bg-green-400 p-1 my-2 rounded-lg '>
-                Add To Cart
-              </button>
+    <div className="w-full flex flex-col items-center min-h-screen">
+      <h1 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-white mb-10">
+        Products / Accessories
+      </h1>
+
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 px-4 sm:px-8 md:px-14 pb-10">
+        {products.map((product) => (
+          <div
+            key={product.$id}
+            className="flex flex-col border-2 border-purple-300 rounded-lg shadow-md hover:shadow-purple-400 transition"
+          >
+            {/* image */}
+            <img
+              src={product.featuredImage}
+              alt={product.product_name}
+              className="h-48 w-full object-cover rounded-t-lg"
+            />
+
+            {/* content */}
+            <div className="flex flex-col flex-1 p-4">
+              <h3 className="text-lg font-semibold text-purple-200 mb-2">
+                {product.product_name}
+              </h3>
+
+              <p className="text-sm text-gray-300 flex-1">{product.description}</p>
+
+              {/* price + button */}
+              <div className="mt-4 flex items-center justify-between">
+                <span className="text-blue-300 text-lg font-bold">
+                  ₹{product.price}
+                </span>
+                <button onClick={() => addToCart(product)} className="bg-green-500 hover:bg-green-600 text-white text-sm px-3 py-1 rounded-lg">
+                  Add to Cart
+                </button>
+              </div>
             </div>
-          ))}
+          </div>
+        ))}
       </div>
     </div>
-  )
+  );
 }
 
-export default Products
+export default Products;
