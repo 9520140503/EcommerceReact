@@ -24,8 +24,9 @@ class AppwriteCartService{
     }
    }
 
-   async getCartItemsByUserId(userId){
+   async getCartItemsByUserId(){
         try {
+        const userId = await this.getUserId()
         const res = await this.database.listDocuments(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId2,

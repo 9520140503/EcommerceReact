@@ -53,7 +53,7 @@ function Products() {
         {products.map((product) => (
           <div
             key={product.$id}
-            className="flex flex-col border-2 border-purple-300 rounded-lg shadow-md hover:shadow-purple-400 transition"
+            className="flex flex-col border-2 border-purple-300 rounded-lg shadow-md shadow-purple-400 transition"
           >
             {/* image */}
             <img
