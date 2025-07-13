@@ -12,7 +12,7 @@ function Header() {
     {name:  'Home', slug: '/',status:true},
     {name: 'Products', slug: '/products',status:authStatus},
     {name: 'Cart', slug: '/cart',status:authStatus},
-    {name: 'Contact Us', slug: '/contact',status:!authStatus},
+    {name: 'Contact', slug: '/contact',status:true},
     {name: 'Login', slug: '/login',status:!authStatus},
     {name: 'Sign Up', slug: '/signup',status:!authStatus},
   ]
@@ -29,7 +29,7 @@ function Header() {
 
           <button onClick={() =>setShowHam(prev => !prev)} className='text-white sm:hidden absolute right-2 top-6'><FaBars/></button>
 
-          <ul className='hidden  sm:flex items-center sm:text-lg md:text-xl gap-2 sm:gap-4 md:gap-16 text-blue-300'>
+          <ul className='hidden sm:flex items-center sm:text-lg lg:text-xl gap-2 sm:gap-4 md:gap-16 text-blue-300'>
             {navItems.map((item) => (
               item.status ?
               <li 

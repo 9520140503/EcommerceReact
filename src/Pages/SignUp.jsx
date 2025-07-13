@@ -5,6 +5,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import authService from '../Appwrite/auth';
 import {login} from "../Store/authSlice"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function SignUp() {
@@ -25,7 +27,10 @@ function SignUp() {
       const userData = await authService.signup(data)
       if(userData){
         dispatch(login(userData))
-        navigate('/')
+        toast.success("Acccount created succefully")
+        setTimeout(() => {
+        navigate('/');
+      }, 1500); 
       }
     }catch (error) {
       console.log("SignUp: ",error.message)
@@ -35,7 +40,7 @@ function SignUp() {
 
   return (
     <div className="min-h-screen w-full py-10 px-4 sm:px-8 md:px-12 lg:px-20 flex flex-col lg:flex-row items-center justify-center gap-12">
-      
+      <ToastContainer  position="top-center" autoClose={1500} theme="dark"/>
       {/* Left branding panel - only visible on lg and up */}
       <div className="hidden lg:flex flex-col items-center justify-center w-1/3 border-2 rounded-lg border-purple-400 p-8 h-[610px]">
         <h1 className="text-4xl font-bold text-white mb-4">Loome</h1>

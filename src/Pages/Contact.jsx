@@ -1,20 +1,31 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import appwriteContactUs from "../Appwrite/contact";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function Contact() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log("Contact Form Data:", data);
-    // You can add your backend API call or email logic here
+  const onSubmit = async(data) => {
+    try {
+       await appwriteContactUs.sendMessage(data)
+       toast.success("Message Send Successfully!");
+      reset()
+    } catch (error) {
+      console.log("Error: ",error.message)
+    }
   };
 
   return (
     <div className="min-h-scree px-6 py-12 flex flex-col items-center justify-center">
+      <ToastContainer />
       {/* Header and Description */}
       <div className="text-center max-w-2xl mb-10">
         <h2 className="text-4xl font-bold text-white mb-4">
