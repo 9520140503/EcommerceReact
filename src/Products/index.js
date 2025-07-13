@@ -1,7 +1,7 @@
 import { beautyAndHealthProducts } from "./beauty";
 import { toyProducts } from "./toys";
 import { clothingProducts } from "./clothing";
-import { smartphones } from "./Smartphones";
+import { smartphones } from "./smartphones";
 import { bookProducts } from "./books";
 import { homeAndKitchenProducts } from "./home";
 
